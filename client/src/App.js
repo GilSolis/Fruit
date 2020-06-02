@@ -19,83 +19,83 @@ import Contacts from "./components/Contacts";
 // import product from "./pages/Product";
 import { ProduceProvider } from './context/ProduceContext'
 
-// class App extends React.Component {
-//   constructor() {
-//     super();
+class App extends React.Component {
+  constructor() {
+    super();
 
-//     this.state = {
-//       loggedInStatus: "Not_Logged_In",
-//       user: {}
-//     };
-//     this.handleLogin = this.handleLogin.bind(this);
-//     this.handleLogout = this.handleLogout.bind(this);
+    this.state = {
+      loggedInStatus: "Not_Logged_In",
+      user: {}
+    };
+    this.handleLogin = this.handleLogin.bind(this);
+    this.handleLogout = this.handleLogout.bind(this);
 
-//   }
+  }
 
 
-//   handleLogout() {
-//     this.setState({
-//       loggedInStatus: "NOT_LOGGED_IN",
-//       user: {}
-//     });
-//     localStorage.removeItem('userData');
-//     window.location.replace("/");
-//   }
+  handleLogout() {
+    this.setState({
+      loggedInStatus: "NOT_LOGGED_IN",
+      user: {}
+    });
+    localStorage.removeItem('userData');
+    window.location.replace("/");
+  }
 
-//   handleLogin(data) {
+  handleLogin(data) {
 
-//     this.setState({
-//       loggedInStatus: "Logged_In",
-//       user: data
-//     });
-//   }
+    this.setState({
+      loggedInStatus: "Logged_In",
+      user: data
+    });
+  }
 
-function App() {
 
-  // render() {
-  return (
-    <Router>
-      {/* <ProduceProvider>
-        <Navbars
-          {...this.props}
-          handleLogin={this.handleLogin}
-          handleLogout={this.handleLogout}
-        />
+  render() {
+    return (
+      <Router>
+        <ProduceProvider>
+          <Navbars
+            {...this.props}
+            handleLogin={this.handleLogin}
+            handleLogout={this.handleLogout}
+          />
 
-        <Switch> */}
-      <div>
-        <Route exact path={"/"} component={Home} />
-        <Route exact path={"/home"} component={Home} />
+          <Switch>
 
-      </div>
-      {/* <Route exact path={"/member"} render={props => (
-            <Member
-              {...props}
-              loggedInStatus={this.state.loggedInStatus}
+            <Route exact path={"/"} component={Home} />
+            <Route exact path={"/home"} component={Home} />
+
+
+            <Route exact path={"/member"} render={props => (
+              <Member
+                {...props}
+                loggedInStatus={this.state.loggedInStatus}
+              />
+            )}
             />
-          )}
-          />
 
-          <Route exact path="/product" component={Product} />
-          <Route exact path="/category" component={ManagerTest} />
-          <Route exact path="/shopping-cart" component={ShopingCart} />
-          <Route exact path="/favorites" component={FavoritesList} />
-          <Route exact path="/posts/:id" component={Detail} />
-          <Route
-            exact
-            path="/transactionHistory"
-            component={TransactionHistory}
-          />
+            <Route exact path="/product" component={Product} />
+            <Route exact path="/category" component={ManagerTest} />
+            <Route exact path="/shopping-cart" component={ShopingCart} />
+            <Route exact path="/favorites" component={FavoritesList} />
+            <Route exact path="/posts/:id" component={Detail} />
+            <Route
+              exact
+              path="/transactionHistory"
+              component={TransactionHistory}
+            />
 
-          <Route exact path="/signUpsuccess" component={SignUpsuccess} />
-          <Route exact path="/contacts" component={Contacts} />
-          <Route component={NoMatch} />
+            <Route exact path="/signUpsuccess" component={SignUpsuccess} />
+            <Route exact path="/contacts" component={Contacts} />
+            <Route component={NoMatch} />
 
-        </Switch>
-        <Footer />
-      </ProduceProvider> */}
-    </Router>
-  )
+          </Switch>
+          <Footer />
+        </ProduceProvider>
+      </Router>
+    )
+  }
 }
 
 
