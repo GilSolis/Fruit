@@ -14,10 +14,10 @@ const app = express();
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
-// if (process.env.NODE_ENV === "production") {
-//   app.use(express.static("client/build"));
-// }
-app.use(express.static("public"));
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+}
+// app.use(express.static("public"));
 // We need to use sessions to keep track of our user's login status
 app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true }));
 app.use(passport.initialize());
@@ -41,10 +41,10 @@ mongoose.connect(process.env.MONGODB_URI || db, {
   useUnifiedTopology: true,
 });
 
-const connection = mongoose.connection;
-connection.once("open", () => {
-  console.log("MongoDB connected");
-});
+// const connection = mongoose.connection;
+// connection.once("open", () => {
+//   console.log("MongoDB connected");
+// });
 
 
 const port = process.env.PORT || 3001;
